@@ -10,7 +10,7 @@ const Navbar2 = () => {
         <li className="text-gray-500 hover:text-[#39b75d] cursor-pointer">Security</li>
       </ul>
       <div className="mt-2 text-black">
-        © 2024 Printify,Inc.All rights reserved.
+        © 2024 Capyod,Inc.All rights reserved.
       </div>
     </div>
   );

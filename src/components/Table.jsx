@@ -16,7 +16,7 @@ const Table = () => {
               Start Selling
             </th>
             <th scope="col" className="px-6 py-3 text-black">
-              Printify
+              Capyod
             </th>
           </tr>
         </thead>
@@ -25,15 +25,15 @@ const Table = () => {
             ["Shopify", "Blog", "Custom T-shirts", "Print on Demand"],
             ["Etsy", "Guides", "Custom Hoodies", "Print Providers"],
             ["eBay", "Etsy print-on-demand", "Custom Mugs", "Experts Program"],
-            ["Amazon", "Shopify print-on-demand", "Custom Socks", "Printify Express Delivery"],
+            ["Amazon", "Shopify print-on-demand", "Custom Socks", "Capyod Express Delivery"],
             ["TikTok Shop", "Woocommerce print-on-demand", "Custom Backpacks", "Become a Partner"],
             ["PrestaShop", "Wix print-on-demand", "Custom Branding", "About"],
-            ["BigCommerce", "Squarespace print-on-demand", "Sell on Etsy", "Printify Quality Promise"],
+            ["BigCommerce", "Squarespace print-on-demand", "Sell on Etsy", "Capyod Quality Promise"],
             ["Wix", "Make Your Own Shirt", "Sell on Social Media", "Jobs"],
             ["WooCommerce", "Free T-shirt Designs", "Custom Products", "Webinars"],
             ["Squarespace", "Custom All-Over-Print Hoodies", "Start a Clothing Line", "Printing Profits Podcast"],
-            ["Printify API", "Start POD Business", "Bulk Orders", "Contact Us"],
-            ["Printify Pop-Up Store", "Transfering To Printify", "Merchant Protection", "Affiliate"],
+            ["Capyod API", "Start POD Business", "Bulk Orders", "Contact Us"],
+            ["Capyod Pop-Up Store", "Transfering To Capyod", "Merchant Protection", "Affiliate"],
             ["Shutterstock", "POD Glossary", "Security", "Sitemap"]
           ].map((row, index) => (
             <tr key={index} className="bg-white hover:text-[#39b75d] transition-colors duration-300">

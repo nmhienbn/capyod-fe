@@ -8,7 +8,7 @@ const Navbar = () => {
         {/* Logo Section */}
         <div className="flex-none">
           <h1 className="text-2xl font-bold">
-            <span className="text-[#39b75d]">PrintiFy</span>
+            <span className="text-[#39b75d]">Capyod</span>
           </h1>
         </div>
 
@@ -32,14 +32,14 @@ const Navbar = () => {
                 <ArrowDownToDot className="h-4 w-4 ml-2" />
               </a>
               <div className="absolute left-0 top-full mt-2 w-48 bg-white shadow-lg rounded z-10 opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 group-hover:transform origin-top transition-all duration-300 ease-out">
-                <a href="/how-it-works-1" className="block px-4 py-2 bg-white text-gray-600 hover:text-[#39b75d]" aria-label="How Printify Works">
-                  How Printify Works
+                <a href="/how-it-works-1" className="block px-4 py-2 bg-white text-gray-600 hover:text-[#39b75d]" aria-label="How Capyod Works">
+                  How Capyod Works
                 </a>
                 <a href="/how-it-works-2" className="block px-4 py-2 bg-white text-gray-600 hover:text-[#39b75d]" aria-label="Print On Demand">
                   Print On Demand
                 </a>
-                <a href="/how-it-works-3" className="block px-4 py-2 bg-white text-gray-600 hover:text-[#39b75d]" aria-label="Printify Quality Promise">
-                  Printify Quality Promise
+                <a href="/how-it-works-3" className="block px-4 py-2 bg-white text-gray-600 hover:text-[#39b75d]" aria-label="Capyod Quality Promise">
+                  Capyod Quality Promise
                 </a>
               </div>
             </li>
