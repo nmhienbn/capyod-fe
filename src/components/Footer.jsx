@@ -9,7 +9,7 @@ const Footer = () => {
       
         <div className="flex-none">
           <h1 className="text-3xl font-bold">
-            <span className="text-[#39b75d] ">PrintiFy</span>
+            <span className="text-[#39b75d] ">Capyod</span>
           </h1>
         </div>
 
