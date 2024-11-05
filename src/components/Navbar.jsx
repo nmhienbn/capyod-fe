@@ -1,11 +1,14 @@
 import React from "react";
 import { ArrowDownToDot } from 'lucide-react';
 
+import logo from '../assets/logo192.png';
+
 const Navbar = () => {
   return (
     <div className="bg-white shadow-md">
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16 px-4">
         {/* Logo Section */}
+        <div><img src={logo} alt="Capyod Logo" className="h-8 w-8" /></div>
         <div className="flex-none">
           <h1 className="text-2xl font-bold">
             <span className="text-[#39b75d]">Capyod</span>

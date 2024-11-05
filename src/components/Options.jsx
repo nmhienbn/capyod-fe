@@ -1,6 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import optionImg1 from "../assets/option1.webp";
+import optionImg2 from "../assets/option2.webp";
+import optionImg3 from "../assets/option3.webp";
+
 const Options = () => {
   // Animation variant for cards
   const cardVariants = {
@@ -28,7 +32,7 @@ const Options = () => {
         >
           <div className="mb-4">
             <img
-              src="https://printify.com/pfh/assets/legacy/custom-products.png"
+              src={optionImg1}
               alt="Higher Profits"
               className="w-full rounded-md h-48 object-contain"
             />
@@ -56,7 +60,7 @@ const Options = () => {
         >
           <div className="mb-4">
             <img
-              src="https://printify.com/pfh/assets/legacy/your-products.png"
+              src={optionImg2}
               alt="Robust Scaling"
               className="w-full rounded-md h-48 object-contain"
             />
@@ -83,7 +87,7 @@ const Options = () => {
         >
           <div className="mb-4">
             <img
-              src="https://printify.com/pfh/assets/legacy/fullfillment.png"
+              src={optionImg3}
               alt="Best Selection"
               className="w-full rounded-md h-48 object-contain"
             />
