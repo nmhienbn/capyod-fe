@@ -1,8 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 const LoginModal = ({ onClose }) => {
+  // Disable scroll on body when modal is open
+  useEffect(() => {
+    document.body.style.overflow = "hidden"; // Disable scroll
+
+    // Cleanup: Restore scroll when modal is closed
+    return () => {
+      document.body.style.overflow = "auto"; // Re-enable scroll
+    };
+  }, []);
   return (
-    <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+    <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-[9999]">
       <div className="bg-white p-6 rounded shadow-md w-80">
         <h2 className="text-2xl font-bold mb-4">Log In</h2>
         <form>

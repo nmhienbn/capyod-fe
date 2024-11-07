@@ -1,0 +1,100 @@
+.starter-essentials .container {
+  padding: 0 20px 100px 100px;
+}
+
+.starter-essentials h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.product-list {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.starter-item {
+  position: relative;
+  width: 275px;
+  text-align: left; /* Căn trái để giống với thiết kế */
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.starter-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Căn chỉnh ảnh */
+.main-image,
+.hover-image {
+  width: 100%;
+  border-radius: 4px;
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển tiếp khi hover */
+}
+
+.hover-image {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: calc(100% - 30px);
+  opacity: 0;
+  z-index: 1;
+}
+
+/* Khi hover vào .starter-item, main-image ẩn và hover-image hiển thị */
+.starter-item:hover .main-image {
+  opacity: 0;
+  transform: scale(0.95); /* Giảm kích thước nhẹ để tạo cảm giác ảnh thu nhỏ */
+}
+
+.starter-item:hover .hover-image {
+  opacity: 1;
+}
+
+/* Căn chỉnh tên sản phẩm */
+.product-name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 8px;
+  color: #333;
+}
+
+.badge.bestseller {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: #f5d0a9;
+  color: #333;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  z-index: 100;
+}
+
+/* Căn chỉnh các thông tin thêm */
+.additional-info {
+  color: #666;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 8px;
+}
+
+.premium-price {
+  color: #666;
+  font-size: 14px;
+  margin-top: 4px;
+}
