@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { ArrowDownToDot } from "lucide-react";
 import logo from "../assets/logo192.png";
 import LoginModal from "./LoginModal";
@@ -7,12 +6,10 @@ import SignUpModal from "./SignUpModal";
 
 const Navbar = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
 
   const openLoginModal = () => setIsLoginModalOpen(true);
   const closeLoginModal = () => setIsLoginModalOpen(false);
-
-  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
-
   const openSignUpModal = () => setIsSignUpModalOpen(true);
   const closeSignUpModal = () => setIsSignUpModalOpen(false);
 
@@ -30,21 +27,21 @@ const Navbar = () => {
 
         <div className="flex-1 flex items-center justify-center">
           <ul className="flex font-medium items-center gap-8 relative text-gray-600">
-            {/* Category Item */}
+            {/* Catalog Item */}
             <li>
               <a
-                href="/"
+                href="/products"
                 className="hover:text-[#39b75d]"
-                aria-label="Category"
+                aria-label="Catalog"
               >
-                Category
+                Catalog
               </a>
             </li>
 
             {/* How it Works Dropdown */}
             <li className="relative flex items-center group">
               <a
-                href="#"
+                href="/"
                 className="hover:text-[#39b75d] cursor-pointer flex items-center"
                 aria-label="How it works"
               >
@@ -101,7 +98,7 @@ const Navbar = () => {
             {/* Services Dropdown */}
             <li className="relative group">
               <a
-                href="#"
+                href="/"
                 className="hover:text-[#39b75d] cursor-pointer"
                 aria-label="Services"
               >
@@ -109,11 +106,11 @@ const Navbar = () => {
               </a>
               <div className="absolute left-0 top-full mt-2 w-48 bg-white shadow-lg rounded z-10 opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 group-hover:transform origin-top transition-all duration-300 ease-out">
                 <a
-                  href="/service-1"
+                  href="/TranferProducts"
                   className="block px-4 py-2 bg-white text-gray-600 hover:text-[#39b75d]"
                   aria-label="Service 1"
                 >
-                  Service 1
+                  Tranfer Product
                 </a>
                 <a
                   href="/service-2"
@@ -139,7 +136,7 @@ const Navbar = () => {
             {/* Need Help Dropdown */}
             <li className="relative flex items-center group">
               <a
-                href="#"
+                href="/"
                 className="hover:text-[#39b75d] cursor-pointer flex items-center"
                 aria-label="Need help?"
               >
