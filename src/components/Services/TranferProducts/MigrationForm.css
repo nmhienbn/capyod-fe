@@ -1,0 +1,103 @@
+/* Container for the form and content */
+.migration-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 100px;
+  gap: 30px;
+  font-family: Arial, sans-serif;
+}
+
+.migration-content {
+  max-width: 500px;
+  min-width: 350px;
+}
+
+.migration-content h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #2e2e2e;
+}
+
+.highlight-text {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.today-exclusive {
+  list-style: none;
+  padding: 0;
+}
+
+.today-exclusive li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #2e2e2e;
+}
+
+.icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+/* Form styling */
+.migration-form {
+  background-color: #f8f8f8;
+  padding: 20px 30px;
+  width: 100%;
+  max-width: 400px;
+  min-width: 300px;
+  border-radius: 8px;
+}
+
+.migration-form h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2e2e2e;
+}
+
+.subheading {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.migration-form label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.migration-form input,
+.migration-form select,
+.migration-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.migration-form button {
+  background-color: #8bf72e;
+  color: #333;
+  padding: 12px 0;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+.privacy-note {
+  font-size: 12px;
+  color: #666;
+  margin-top: 20px;
+  text-align: center;
+}

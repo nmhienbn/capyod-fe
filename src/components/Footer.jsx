@@ -14,11 +14,21 @@ const Footer = () => {
         </div>
 
         <div className='flex gap-6'>
-          <Facebook/>
-          <Linkedin/>
-          <Twitter/>
-          <Github/>
-          <Instagram/>
+        <a href="https://www.facebook.com/trungnotchung9704" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <Facebook className="text-gray-600 hover:text-[#39b75d]" />
+          </a>
+          <a href="https://www.linkedin.com/in/trungnotchung/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <Linkedin className="text-gray-600 hover:text-[#39b75d]" />
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <Twitter className="text-gray-600 hover:text-[#39b75d]" />
+          </a>
+          <a href="https://github.com/trungnotchung" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <Github className="text-gray-600 hover:text-[#39b75d]" />
+          </a>
+          <a href="https://www.instagram.com/0xtrungnotchung/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <Instagram className="text-gray-600 hover:text-[#39b75d]" />
+          </a>
         </div>
 
        

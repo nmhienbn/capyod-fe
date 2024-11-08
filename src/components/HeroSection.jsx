@@ -12,17 +12,17 @@ const HeroSection = () => {
 
   return (
     <div
-      style={{ fontFamily: "CerebriSans, sans-serif" }}
+      style={{ fontFamily: "Ambit, CerebriSans, sans-serif" }}
       className="flex flex-col lg:flex-row items-center justify-between px-5 lg:px-20 py-10 gap-10"
     >
       {/* Text Section */}
       <div
         className="w-full lg:w-1/2 flex flex-col gap-5"
-        style={{ fontFamily: "CerebriSans, sans-serif" }}
+        style={{ fontFamily: "Ambit, CerebriSans, sans-serif" }}
       >
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-          Design & Sell <br /> Custom
-          <span className="text-[#39b75d]"> T-Shirts</span>
+          DESIGN & SELL <br /> CUSTOM
+          <span className="text-[#39b75d]"> T-SHIRTS</span>
         </h1>
         <p className="text-base sm:text-lg lg:text-xl">
           Create unique, personalized apparel that stands out. Start selling
