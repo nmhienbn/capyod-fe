@@ -87,11 +87,11 @@ const Navbar = () => {
             {/* Blog Item */}
             <li>
               <a
-                href="/browse"
+                href="/store"
                 className="hover:text-[#39b75d]"
                 aria-label="Blog"
               >
-                Blog
+                Your Store
               </a>
             </li>
 

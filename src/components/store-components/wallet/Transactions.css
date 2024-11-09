@@ -1,0 +1,16 @@
+.transactions-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.empty-image {
+    width: 200px;
+}
+
+.empty-message {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
