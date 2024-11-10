@@ -1,0 +1,20 @@
+.tab {
+padding: 10px 20px;
+border: none;
+background: none;
+font-size: 16px;
+font-weight: 500;
+color: #333;
+cursor: pointer;
+/* transition: color 0.3s, border-bottom 0.3s; */
+}
+
+.tab:hover {
+color: #666;
+border-bottom: 1px solid #666;
+}
+
+.tab.active {
+color: #000;
+border-bottom: 2px solid #000;
+}

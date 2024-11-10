@@ -1,20 +1,42 @@
 import React, { useState } from 'react';
 import { LayoutDashboard, Package, ShoppingBag, Truck, Wallet, BarChart3, Settings, Paintbrush } from 'lucide-react';
-import { NavLink, Outlet } from 'react-router-dom';
+import Dashboard from '../components/store-components/Dashboard';
+import MyProducts from '../components/store-components/MyProducts';
+import PaymentsDetails from '../components/store-components/wallet/PaymentsDetails';
 
-const StorePage = () => {
+const PaymentDetailsPage = () => {
+  const [activeSection, setActiveSection] = useState('dashboard');
   const [isStoreDropdownOpen, setIsStoreDropdownOpen] = useState(false);
 
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, path: 'dashboard' },
-    { id: 'catalog', label: 'Catalog', icon: Package, path: 'catalog' },
-    { id: 'products', label: 'My Products', icon: ShoppingBag, path: 'products' },
-    { id: 'orders', label: 'Orders', icon: Truck, path: 'orders' },
-    { id: 'wallet', label: 'Wallet', icon: Wallet, path: 'wallet' },
-    { id: 'insights', label: 'Insights', icon: BarChart3, path: 'insights' },
-    { id: 'settings', label: 'Store Settings', icon: Settings, path: 'settings' },
-    { id: 'branding', label: 'Branding', icon: Paintbrush, path: 'branding' },
+    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { id: 'catalog', label: 'Catalog', icon: Package },
+    { id: 'products', label: 'My Products', icon: ShoppingBag },
+    { id: 'orders', label: 'Orders', icon: Truck },
+    { id: 'wallet', label: 'Wallet', icon: Wallet },
+    { id: 'insights', label: 'Insights', icon: BarChart3 },
+    { id: 'settings', label: 'Store Settings', icon: Settings },
+    { id: 'branding', label: 'Branding', icon: Paintbrush },
   ];
+
+  const renderContent = () => {
+    switch (activeSection) {
+      case 'dashboard':
+        return <Dashboard />;
+      case 'products':
+        return <MyProducts />;
+      case 'wallet':
+        window.location.href = "/store/payment/details";
+        break;
+      default:
+        return (
+          <div className="p-6">
+            <h2 className="text-2xl font-bold mb-4">{activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}</h2>
+            <p>Content for {activeSection} section</p>
+          </div>
+        );
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -57,30 +79,28 @@ const StorePage = () => {
             {menuItems.map((item) => {
               const Icon = item.icon;
               return (
-                <NavLink
+                <button
                   key={item.id}
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `w-full flex items-center gap-3 px-4 py-2 rounded-lg mb-1 ${
-                      isActive ? 'bg-[#39b75d] text-white' : 'hover:bg-gray-100 text-gray-700'
-                    }`
-                  }
+                  onClick={() => setActiveSection(item.id)}
+                  className={`w-full flex items-center gap-3 px-4 py-2 rounded-lg mb-1 ${
+                    activeSection === item.id
+                      ? 'bg-[#39b75d] text-white'
+                      : 'hover:bg-gray-100 text-gray-700'
+                  }`}
                 >
                   <Icon size={20} />
                   <span>{item.label}</span>
-                </NavLink>
+                </button>
               );
             })}
           </nav>
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 bg-white p-6">
-          <Outlet /> {/* Render the nested route content here */}
-        </div>
+        <PaymentsDetails />
       </div>
     </div>
   );
 };
 
-export default StorePage;
+export default PaymentDetailsPage;

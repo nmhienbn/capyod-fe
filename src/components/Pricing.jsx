@@ -53,7 +53,7 @@ const Pricing = () => {
   const closeSignUpModal = () => setIsSignUpModalOpen(false);
 
   return (
-    <div className="bg-gray-50 py-12">
+    <div className="bg-gray-50 main-content">
       {/* Toggle for Monthly/Yearly */}
       <div className="text-center mb-8">
         <div className="inline-flex items-center bg-gray-200 p-2 rounded-full">

@@ -1,0 +1,241 @@
+/* Cơ bản */
+.payments-page {
+  color: #333;
+  padding: 40px;
+}
+
+.payment-details-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.balance-section {
+  display: block;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.balance-detail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: normal;
+  justify-content: normal;
+  align-items: normal;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.balance-benefits {
+  list-style-type: none;
+  padding-left: 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.balance-benefits li {
+  margin-bottom: 8px;
+}
+
+.balance-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #333;
+  padding: 24px 16px;
+  color: #fff;
+  margin-top: 15px;
+  width: 60%;
+}
+
+.balance-amount label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.balance-amount p {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.balance-payment-methods {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+}
+
+.payment-method {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.balance-promo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ccff99;
+  padding: 32px 20px;
+  margin-top: 15px;
+  width: 40%;
+}
+
+.promo-logo {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.balance-promo h2 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  font-style: bold;
+}
+
+.promo-text {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Payment Card Section */
+.payment-card-section {
+  margin-bottom: 20px;
+}
+
+.payment-card-section p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+}
+
+.payment-method img {
+  max-height: 24px;
+}
+
+.add-card-btn {
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Billing Currency Section */
+.billing-currency-section {
+  margin-bottom: 20px;
+}
+
+.currency-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.currency-info span {
+  font-size: 16px;
+}
+
+.change-btn {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  background-color: #f9f9f9;
+  border: 1px solid #333;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Printify Premium Section */
+.premium-section p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+}
+
+.subscribe-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Coupons Section */
+.coupons-section {
+  margin-bottom: 20px;
+}
+
+.coupon-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.coupon-form input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  flex: 1;
+}
+
+.add-coupon-btn {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}

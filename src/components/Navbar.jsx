@@ -14,7 +14,7 @@ const Navbar = () => {
   const closeSignUpModal = () => setIsSignUpModalOpen(false);
 
   return (
-    <div className="bg-white shadow-md">
+    <div  className="fixed top-0 left-0 right-0 z-[9999] bg-white shadow-md">
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16 px-4">
         <div>
           <a href="/"><img src={logo} alt="Capyod Logo" className="h-8 w-8" /></a>
@@ -87,11 +87,11 @@ const Navbar = () => {
             {/* Blog Item */}
             <li>
               <a
-                href="/browse"
+                href="/store"
                 className="hover:text-[#39b75d]"
                 aria-label="Blog"
               >
-                Blog
+                Your Store
               </a>
             </li>
 
