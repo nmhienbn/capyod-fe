@@ -46,7 +46,7 @@ function App() {
               <Route path="products/create" element={<DesignPage />} />
               <Route path="products/preview/:id" element={<DesignPage isPreview={true}/>} />
               <Route path="products/edit/:id" element={<DesignPage />} />
-              <Route path="products/buy/:id" element={<BuyPage />} />
+              <Route path="products/buy/:id" element={<BuyPage buyItem={true}/>} />
               <Route path="orders/info/:id" element={<BuyPage isPreview={true}/>} />
               <Route path="orders/edit/:id" element={<BuyPage/>} />
               <Route path="orders" element={<MyOrders />} />

@@ -8,8 +8,9 @@ import hoodieBackImage from "../assets/store/back_hoodie.png";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
-const DesignPage = ({ isPreview = false }) => {
-  const { id } = useParams(); // Lấy ID từ URL khi chỉnh sửa
+const DesignPage = ({ isPreview = false, idx = null }) => {
+  const params = useParams(); // Lấy ID từ URL khi chỉnh sửa
+  const id = idx !== null ? idx : params.id;
   const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -18,7 +19,7 @@ const DesignPage = ({ isPreview = false }) => {
 
   // State ban đầu
   const [currentType, setCurrentType] = useState("shirt");
-  const [price, setPrice] = useState(20);
+  const [price, setPrice] = useState(200000);
   const [color, setColor] = useState("#ffffff");
   const [size, setSize] = useState("M");
   const [uploadedFrontImage, setUploadedFrontImage] = useState(null);
@@ -452,7 +453,7 @@ const DesignPage = ({ isPreview = false }) => {
       {/* Chọn giá */}
       <div style={styles.optionsContainer}>
         <label htmlFor="priceInput" style={styles.optionLabel}>
-          Giá ($):
+          Giá (VNĐ):
         </label>
         <input
           type="number"

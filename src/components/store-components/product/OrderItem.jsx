@@ -99,7 +99,7 @@ const OrderItem = ({ order, onUpdate }) => {
         <p className="text-sm text-gray-600">Address: {order.address}</p>
         <p className="text-sm text-gray-500">Quantity: {order.quantity}</p>
         <p className="text-sm text-gray-500">
-          Total Price: ${order.totalPrice}
+          Total Price: {order.totalPrice}
         </p>
       </div>
 
@@ -113,7 +113,7 @@ const OrderItem = ({ order, onUpdate }) => {
         <button
           className="p-2 hover:bg-gray-100 rounded"
           onClick={() => {
-            navigate(`/store/orders/info/${order.orderItem.id}`);
+            navigate(`/store/orders/info/${order.id}`);
           }}
         >
           <Info size={16} />

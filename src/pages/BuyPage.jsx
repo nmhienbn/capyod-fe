@@ -2,14 +2,50 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import DesignPage from "./DesignPage";
 
-const BuyPage = ({ isPreview = false }) => {
+const BuyPage = ({ isPreview = false, buyItem = false }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [address, setAddress] = useState("");
+  const [productId, setProductId] = useState(null);
+
+  const [isEditing, setIsEditing] = useState(!!id);
+
+  useEffect(() => {
+    if (isEditing) {
+      const fetchOrder = async () => {
+        try {
+          const response = await fetch(`http://localhost:5000/orders/${id}`, {
+            headers: {
+              Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+            },
+          });
+
+          if (!response.ok) {
+            console.error("Error fetching order:", response.statusText);
+            return;
+          }
+
+          const data = await response.json();
+          setQuantity(data.quantity);
+          setAddress(data.address);
+          setProductId(data.orderItem.id);
+        } catch (error) {
+          console.error("Error fetching order:", error);
+        }
+      };
+
+      fetchOrder();
+    }
+  }, [isEditing]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!buyItem) {
+      console.error("Not buying item");
+      return;
+    }
 
     const orderData = {
       quantity,
@@ -41,14 +77,19 @@ const BuyPage = ({ isPreview = false }) => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Buy Product</h1>
-      <DesignPage isPreview={true} />
+    <div style={styles.container}>
+      <h1 className="text-4xl font-bold text-gray-800 text-center mb-6">
+        Buy Product
+      </h1>
 
-      <form className="mt-6 space-y-4">
-        <div>
-          <label htmlFor="quantity" className="block font-medium mb-2">
-            Quantity
+      <DesignPage isPreview={true} idx={productId} />
+
+      {/* Form Section */}
+      <div style={styles.formSection}>
+        {/* Quantity */}
+        <div style={styles.inputGroup}>
+          <label htmlFor="quantity" style={styles.label}>
+            Quantity:
           </label>
           <input
             id="quantity"
@@ -56,62 +97,92 @@ const BuyPage = ({ isPreview = false }) => {
             value={quantity}
             onChange={(e) => setQuantity(Number(e.target.value))}
             min="1"
-            className="border border-gray-300 p-2 rounded w-full"
+            style={styles.input}
             disabled={isPreview}
           />
         </div>
 
-        <div>
-          <label htmlFor="address" className="block font-medium mb-2">
-            Address
+        {/* Address */}
+        <div style={styles.inputGroup}>
+          <label htmlFor="address" style={styles.label}>
+            Address:
           </label>
           <textarea
             id="address"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             rows="4"
-            className="border border-gray-300 p-2 rounded w-full"
+            style={styles.textarea}
             disabled={isPreview}
           />
         </div>
 
+        {/* Submit Button */}
         {!isPreview && (
           <button
             type="submit"
-            className={`px-4 py-2 rounded text-white ${
-              address === "" || quantity < 1
-                ? "bg-gray-400 cursor-not-allowed"
-                : "bg-blue-500 hover:bg-blue-600 cursor-pointer"
-            }`}
+            style={{
+              ...styles.button,
+              backgroundColor:
+                address === "" || quantity < 1 ? "gray" : "#4CAF50",
+              cursor: address === "" || quantity < 1 ? "not-allowed" : "pointer",
+            }}
             onClick={handleSubmit}
             disabled={address === "" || quantity < 1}
           >
             Place Order
           </button>
         )}
-      </form>
+      </div>
     </div>
   );
 };
 
 const styles = {
-  displaySection: {
-    margin: "auto",
-    position: "relative",
-    width: "300px",
-    height: "300px",
+  container: {
+    textAlign: "center",
+    fontFamily: "Arial, sans-serif",
+    margin: "20px auto",
+    maxWidth: "600px",
+  },
+  formSection: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
+    marginTop: "20px",
+    gap: "20px",
   },
-  canvas: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "300px",
-    height: "300px",
-    zIndex: 1,
+  inputGroup: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "start",
+  },
+  label: {
+    fontWeight: "bold",
+    marginBottom: "5px",
+    fontSize: "18px",
+  },
+  input: {
+    width: "100%",
+    padding: "10px",
+    fontSize: "16px",
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+  },
+  textarea: {
+    width: "100%",
+    padding: "10px",
+    fontSize: "16px",
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+  },
+  button: {
+    padding: "10px 20px",
+    fontSize: "16px",
+    color: "white",
+    border: "none",
+    borderRadius: "5px",
   },
 };
 

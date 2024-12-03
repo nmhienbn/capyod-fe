@@ -44,7 +44,7 @@ const DesignControls = ({ currentType, setCurrentType, color, setColor, size, se
         </select>
       </div>
       <div style={{ margin: "10px 0" }}>
-        <label htmlFor="priceInput" style={{ marginRight: "10px", fontWeight: "bold" }}>Giá ($):</label>
+        <label htmlFor="priceInput" style={{ marginRight: "10px", fontWeight: "bold" }}>Giá (VNĐ):</label>
         <input
           type="number"
           id="priceInput"
