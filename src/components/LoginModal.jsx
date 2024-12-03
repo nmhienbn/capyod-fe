@@ -1,20 +1,55 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
-const LoginModal = ({ onClose }) => {
-  // Disable scroll on body when modal is open
+const LoginModal = ({ onClose, onLoginSuccess }) => {
+  const { setIsLoggedIn, setUserID } = useContext(AuthContext);
+  const [message, setMessage] = useState(null);
+
   useEffect(() => {
-    document.body.style.overflow = "hidden"; // Disable scroll
+    document.body.style.overflow = "hidden";
 
-    // Cleanup: Restore scroll when modal is closed
     return () => {
-      document.body.style.overflow = "auto"; // Re-enable scroll
+      document.body.style.overflow = "auto";
     };
   }, []);
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    try {
+      const response = await fetch("http://localhost:5000/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setIsLoggedIn(true);
+        setUserID(data.sub);
+        console.log("Login successful:", data);
+        setMessage("Login successful!");
+        onLoginSuccess(data.access_token);
+        onClose();
+      } else {
+        const errorData = await response.json();
+        console.error("Login failed:", errorData.message);
+        setMessage(errorData.message || "Login failed.");
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+      setMessage("An error occurred.");
+    }
+  };
+
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-[9999]">
       <div className="bg-white p-6 rounded shadow-md w-80">
         <h2 className="text-2xl font-bold mb-4">Log In</h2>
-        <form>
+        {message && <p className="mb-4 text-red-500">{message}</p>}
+        <form onSubmit={handleLogin}>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700">
               Email
@@ -22,6 +57,7 @@ const LoginModal = ({ onClose }) => {
             <input
               type="email"
               id="email"
+              name="email"
               className="w-full px-3 py-2 border rounded"
               placeholder="Enter your email"
             />
@@ -33,6 +69,7 @@ const LoginModal = ({ onClose }) => {
             <input
               type="password"
               id="password"
+              name="password"
               className="w-full px-3 py-2 border rounded"
               placeholder="Enter your password"
             />
