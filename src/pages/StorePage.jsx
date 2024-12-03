@@ -1,37 +1,31 @@
 import React, { useState } from 'react';
 import { LayoutDashboard, Package, ShoppingBag, Truck, Wallet, BarChart3, Settings, Paintbrush } from 'lucide-react';
 import { NavLink, Outlet } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const StorePage = () => {
   const [isStoreDropdownOpen, setIsStoreDropdownOpen] = useState(false);
 
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, path: 'dashboard' },
-    { id: 'catalog', label: 'Catalog', icon: Package, path: 'catalog' },
+    // { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, path: 'dashboard' },
+    // { id: 'catalog', label: 'Catalog', icon: Package, path: 'catalog' },
     { id: 'products', label: 'My Products', icon: ShoppingBag, path: 'products' },
     { id: 'orders', label: 'Orders', icon: Truck, path: 'orders' },
     { id: 'wallet', label: 'Wallet', icon: Wallet, path: 'wallet' },
-    { id: 'insights', label: 'Insights', icon: BarChart3, path: 'insights' },
-    { id: 'settings', label: 'Store Settings', icon: Settings, path: 'settings' },
-    { id: 'branding', label: 'Branding', icon: Paintbrush, path: 'branding' },
+    // { id: 'insights', label: 'Insights', icon: BarChart3, path: 'insights' },
+    // { id: 'settings', label: 'Store Settings', icon: Settings, path: 'settings' },
+    // { id: 'branding', label: 'Branding', icon: Paintbrush, path: 'branding' },
   ];
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Promotion Banner */}
-      <div className="bg-[#2F3321] text-white py-3 px-4 flex justify-between items-center">
-        <span className="text-sm">Get up to 20% discount on all products with Capyod Premium.</span>
-        <div className="flex items-center gap-4">
-          <a href="#" className="text-sm underline">Get it now</a>
-          <button className="text-white" onClick={() => {}}>×</button>
-        </div>
-      </div>
 
+<Navbar/>
       <div className="flex flex-1">
         {/* Sidebar */}
         <div className="w-64 bg-gray-50 border-r border-gray-200 flex flex-col">
           {/* Store Dropdown */}
-          <div className="p-4 border-b border-gray-200">
+          {/* <div className="p-4 border-b border-gray-200">
             <button
               onClick={() => setIsStoreDropdownOpen(!isStoreDropdownOpen)}
               className="w-full flex items-center justify-between text-left px-4 py-2 rounded-lg hover:bg-gray-100"
@@ -50,7 +44,7 @@ const StorePage = () => {
                 />
               </svg>
             </button>
-          </div>
+          </div> */}
 
           {/* Navigation Menu */}
           <nav className="flex-1 p-4">
