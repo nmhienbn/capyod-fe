@@ -39,6 +39,7 @@ const StorePage = () => {
         <div className="w-64 bg-gray-50 border-r border-gray-200 flex flex-col">
           {/* Store Dropdown */}
           {/* <div className="p-4 border-b border-gray-200">
+          {/* <div className="p-4 border-b border-gray-200">
             <button
               onClick={() => setIsStoreDropdownOpen(!isStoreDropdownOpen)}
               className="w-full flex items-center justify-between text-left px-4 py-2 rounded-lg hover:bg-gray-100"
@@ -57,6 +58,7 @@ const StorePage = () => {
                 />
               </svg>
             </button>
+          </div> */}
           </div> */}
 
           {/* Navigation Menu */}

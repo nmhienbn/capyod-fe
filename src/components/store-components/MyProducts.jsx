@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Search, Plus } from "lucide-react";
+import React, { useState, useContext, useEffect } from "react";
+import { Search, Plus } from "lucide-react";
 import no_product from "../../assets/logo192.png";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -67,12 +69,23 @@ const MyProducts = () => {
         >
           <Plus size={20} className="text-white" />
           <span className="text-sm font-semibold">Create Products</span>
+        <h1 className="text-2xl font-bold">My Products</h1>
+        <button
+          className="bg-[#2F3321] text-white px-6 py-3 rounded-lg flex items-center gap-3 hover:bg-[#3D442A] transition duration-300 shadow-md"
+          onClick={() => navigate("create")}
+        >
+          <Plus size={20} className="text-white" />
+          <span className="text-sm font-semibold">Create Products</span>
         </button>
       </div>
 
       {/* Search and Filters */}
       <div className="space-y-4">
         <div className="relative">
+          <Search
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+            size={20}
+          />
           <Search
             className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
             size={20}
@@ -144,3 +157,4 @@ const MyProducts = () => {
 };
 
 export default MyProducts;
+

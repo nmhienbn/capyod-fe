@@ -6,10 +6,16 @@ const LoginModal = ({ onClose, onLoginSuccess }) => {
   const { setIsLoggedIn, setUserID } = useContext(AuthContext);
   const [message, setMessage] = useState(null);
 
+const LoginModal = ({ onClose, onLoginSuccess }) => {
+  const { setIsLoggedIn, setUserID } = useContext(AuthContext);
+  const [message, setMessage] = useState(null);
+
   useEffect(() => {
+    document.body.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
 
     return () => {
+      document.body.style.overflow = "auto";
       document.body.style.overflow = "auto";
     };
   }, []);
@@ -53,6 +59,8 @@ const LoginModal = ({ onClose, onLoginSuccess }) => {
         <h2 className="text-2xl font-bold mb-4">Log In</h2>
         {message && <p className="mb-4 text-red-500">{message}</p>}
         <form onSubmit={handleLogin}>
+        {message && <p className="mb-4 text-red-500">{message}</p>}
+        <form onSubmit={handleLogin}>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700">
               Email
@@ -60,6 +68,7 @@ const LoginModal = ({ onClose, onLoginSuccess }) => {
             <input
               type="email"
               id="email"
+              name="email"
               name="email"
               className="w-full px-3 py-2 border rounded"
               placeholder="Enter your email"
@@ -72,6 +81,7 @@ const LoginModal = ({ onClose, onLoginSuccess }) => {
             <input
               type="password"
               id="password"
+              name="password"
               name="password"
               className="w-full px-3 py-2 border rounded"
               placeholder="Enter your password"

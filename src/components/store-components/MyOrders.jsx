@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Search, Plus } from "lucide-react";
+import React, { useState, useContext, useEffect } from "react";
+import { Search, Plus } from "lucide-react";
 import no_product from "../../assets/logo192.png";
 import { AuthContext } from "../../contexts/AuthContext";
 import OrderItem from "./product/OrderItem";
@@ -63,12 +65,17 @@ const MyOrders = () => {
         <div className="flex items-center gap-4">
           <h1 className="text-2xl font-bold">My Orders</h1>
           {/* <button className="border border-[#39b75d] text-black px-4 py-2 rounded hover:bg-gray-50">
+          {/* <button className="border border-[#39b75d] text-black px-4 py-2 rounded hover:bg-gray-50">
             My favorites
           </button>
           <button className="text-gray-600 hover:text-gray-800 flex items-center gap-1">
             Visit store <span className="text-lg">↗</span>
           </button> */}
+          </button> */}
         </div>
+        <button className="bg-[#2F3321] text-white px-6 py-2 rounded flex items-center gap-2 strong" onClick={() => navigate('/store/products')}>
+        <Plus size={20} />
+        <span className="text-sm font-semibold">Create Orders</span>
         <button className="bg-[#2F3321] text-white px-6 py-2 rounded flex items-center gap-2 strong" onClick={() => navigate('/store/products')}>
         <Plus size={20} />
         <span className="text-sm font-semibold">Create Orders</span>
@@ -76,8 +83,13 @@ const MyOrders = () => {
       </div>
 
       {/* Search */}
+      {/* Search */}
       <div className="space-y-4">
         <div className="relative">
+          <Search
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+            size={20}
+          />
           <Search
             className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
             size={20}
@@ -135,3 +147,4 @@ const MyOrders = () => {
 };
 
 export default MyOrders;
+
