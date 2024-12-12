@@ -1,5 +1,4 @@
 import "./App.css";
-import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import PricingPage from "./pages/PricingPage";
@@ -34,7 +33,7 @@ function App() {
             <Route path="/" element={<Homepage />} />
             <Route path="/home" element={<Homepage />} />
             <Route path="/users" element={<UsersPage />} />
-            <Route path="/*" element={<Navigate to="home" replace />} />
+            {/* <Route path="/*" element={<Navigate to="home" replace />} /> */}
             <Route path="/store" element={<StorePage />}>
               <Route index element={<Navigate to="products" replace />} />
               {/* <Route path="dashboard" element={<Dashboard />} />

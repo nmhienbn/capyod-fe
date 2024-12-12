@@ -1,7 +1,5 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { ArrowDownToDot } from "lucide-react";
 import logo from "../assets/logo192.png";
 import LoginModal from "./LoginModal";
@@ -11,8 +9,6 @@ import Lenna from "../assets/Lenna.png";
 import LoginRequired from "./LoginRequired";
 
 const Navbar = () => {
-  const { isLoggedIn, userID, handleLogout, setIsLoggedIn } =
-    useContext(AuthContext);
   const { isLoggedIn, userID, handleLogout, setIsLoggedIn } =
     useContext(AuthContext);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -51,20 +47,12 @@ const Navbar = () => {
 
   return (
     <div className="relative top-0 left-0 right-0 z-[9999] bg-white shadow-md">
-    <div className="relative top-0 left-0 right-0 z-[9999] bg-white shadow-md">
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16 px-4">
         <div style={{ display: "flex", flexDirection: "row" }}>
           <a href="/">
             <img src={logo} alt="Capyod Logo" className="h-8 w-8" />
           </a>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <a href="/">
-            <img src={logo} alt="Capyod Logo" className="h-8 w-8" />
-          </a>
           <h1 className="text-2xl font-bold">
-            <a href="/">
-              <span className="text-[#39b75d]">Capyod</span>
-            </a>
             <a href="/">
               <span className="text-[#39b75d]">Capyod</span>
             </a>
