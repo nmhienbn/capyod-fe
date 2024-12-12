@@ -1,13 +1,18 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { ArrowDownToDot } from "lucide-react";
 import logo from "../assets/logo192.png";
 import LoginModal from "./LoginModal";
 import SignUpModal from "./SignUpModal";
 import { AuthContext } from "../contexts/AuthContext";
 import Lenna from "../assets/Lenna.png";
+import LoginRequired from "./LoginRequired";
 
 const Navbar = () => {
+  const { isLoggedIn, userID, handleLogout, setIsLoggedIn } =
+    useContext(AuthContext);
   const { isLoggedIn, userID, handleLogout, setIsLoggedIn } =
     useContext(AuthContext);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -23,6 +28,7 @@ const Navbar = () => {
   const menuItems = [
     { label: "Catalog", href: "/products" },
     { label: "Pricing", href: "/pricing" },
+    { label: "Users", href: "/users" },
     { label: "Your Store", href: "/store" },
     // { label: "Use Case", href: "/browse" },
   ];
@@ -45,7 +51,12 @@ const Navbar = () => {
 
   return (
     <div className="relative top-0 left-0 right-0 z-[9999] bg-white shadow-md">
+    <div className="relative top-0 left-0 right-0 z-[9999] bg-white shadow-md">
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16 px-4">
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <a href="/">
+            <img src={logo} alt="Capyod Logo" className="h-8 w-8" />
+          </a>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <a href="/">
             <img src={logo} alt="Capyod Logo" className="h-8 w-8" />
@@ -54,14 +65,27 @@ const Navbar = () => {
             <a href="/">
               <span className="text-[#39b75d]">Capyod</span>
             </a>
+            <a href="/">
+              <span className="text-[#39b75d]">Capyod</span>
+            </a>
           </h1>
         </div>
-        <ul className="flex font-medium items-center gap-8 text-gray-600">
+        <ul className="flex font-medium items-center gap-8 text-gray-600 flex-grow ml-20">
           {menuItems.map((item) => (
             <li key={item.label}>
-              <a href={item.href} className="hover:text-[#39b75d]">
-                {item.label}
-              </a>
+              {item.href === "/store" ? (
+                <LoginRequired
+                  onSuccess={() => navigate(item.href)} // Điều hướng nếu đăng nhập
+                >
+                  <span className="hover:text-[#39b75d] cursor-pointer">
+                    {item.label}
+                  </span>
+                </LoginRequired>
+              ) : (
+                <a href={item.href} className="hover:text-[#39b75d]">
+                  {item.label}
+                </a>
+              )}
             </li>
           ))}
           {Object.keys(dropdownItems).map((key) => (
@@ -123,10 +147,7 @@ const Navbar = () => {
       {isLoginModalOpen && (
         <LoginModal
           onClose={() => toggleModal("login", false)}
-          onLoginSuccess={(token) => {
-            sessionStorage.setItem("accessToken", token);
-            setIsLoggedIn(true);
-          }}
+          onLoginSuccess={() => setIsLoggedIn(true)}
         />
       )}
       {isSignUpModalOpen && (
