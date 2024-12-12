@@ -24,6 +24,7 @@ const Navbar = () => {
   const menuItems = [
     { label: "Catalog", href: "/products" },
     { label: "Pricing", href: "/pricing" },
+    { label: "Users", href: "/users" },
     { label: "Your Store", href: "/store" },
     // { label: "Use Case", href: "/browse" },
   ];

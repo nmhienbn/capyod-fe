@@ -22,6 +22,7 @@ import Header from "./components/Catalog/Header";
 import DesignPage from "./pages/DesignPage";
 import { AuthProvider } from "./contexts/AuthContext";
 import BuyPage from "./pages/BuyPage";
+import UsersPage from "./pages/UsersPage";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/home" element={<Homepage />} />
+            <Route path="/users" element={<UsersPage />} />
             {/* <Route path="/*" element={<Navigate to="home" replace />} /> */}
             <Route path="/store" element={<StorePage />}>
               <Route index element={<Navigate to="products" replace />} />
@@ -73,13 +75,11 @@ function App() {
             </Route>
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/products" element={<ProductPage />}>
-              <Route
-                path=":productType"
-                element={<Products/>}
-              />
+              <Route path=":productType" element={<Products />} />
             </Route>
             <Route path="/TranferProducts" element={<TranferProducts />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/profile/:id" element={<ProfilePage />} />
           </Routes>
         </div>
       </Router>

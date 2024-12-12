@@ -34,6 +34,7 @@ const LoginModal = ({ onClose, onLoginSuccess }) => {
         setMessage("Login successful!");
         Cookies.set("accessToken", data.access_token, { expires: 7, path: "/" });
         onLoginSuccess();
+        window.location.reload();
         onClose();
       } else {
         const errorData = await response.json();
