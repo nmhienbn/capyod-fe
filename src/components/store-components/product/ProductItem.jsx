@@ -138,15 +138,15 @@ const ProductItem = ({ product, onUpdate, isSelected, onSelect, canEdit }) => {
     <tr className="hover:bg-gray-50">
       {/* Checkbox */}
       <td className="p-4 text-center">
-      <input
-        type="checkbox"
-        checked={isSelected}
-        onChange={() => onSelect(product.id)}
-      />
+        <input
+          type="checkbox"
+          checked={isSelected}
+          onChange={() => onSelect(product.id)}
+        />
       </td>
 
       {/* Product Image */}
-      <td className="p-4">
+      <td className="p-4 flex justify-center items-center">
         <div className="w-40 h-40 flex-shrink-0">
           <CanvasRenderer
             baseImageSrc={baseImageSrc}
@@ -157,7 +157,7 @@ const ProductItem = ({ product, onUpdate, isSelected, onSelect, canEdit }) => {
       </td>
 
       {/* Product Details */}
-      <td className="p-4">
+      <td className="p-4 text-center">
         <div className="flex-1">
           <h3 className="text-lg font-bold">{product.name}</h3>
           <p className="text-sm text-gray-600">{product.description}</p>

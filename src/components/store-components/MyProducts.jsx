@@ -98,8 +98,8 @@ const MyProducts = () => {
                     onChange={handleSelectAll}
                   />
                 </th>
-                <th className="p-4">Image</th>
-                <th className="p-4">Details</th>
+                <th className="p-4 text-center">Preview</th>
+                <th className="p-4 text-center">Details</th>
                 <th className="p-4 text-center">Inventory</th>
                 <th className="p-4 text-center">Status</th>
                 <th className="p-4 text-center">Actions</th>
