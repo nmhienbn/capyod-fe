@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import Lenna from "../assets/Lenna.png";
+import Cookies from "js-cookie";
 
 const Profile = () => {
   const { userID } = useContext(AuthContext);
@@ -8,7 +9,7 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const token = sessionStorage.getItem("accessToken");
+      const token = Cookies.get("accessToken");
       if (!token) return;
 
       try {

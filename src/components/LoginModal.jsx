@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import Cookies from "js-cookie";
 
 const LoginModal = ({ onClose, onLoginSuccess }) => {
   const { setIsLoggedIn, setUserID } = useContext(AuthContext);
@@ -31,7 +32,8 @@ const LoginModal = ({ onClose, onLoginSuccess }) => {
         setUserID(data.sub);
         console.log("Login successful:", data);
         setMessage("Login successful!");
-        onLoginSuccess(data.access_token);
+        Cookies.set("accessToken", data.access_token, { expires: 7, path: "/" });
+        onLoginSuccess();
         onClose();
       } else {
         const errorData = await response.json();

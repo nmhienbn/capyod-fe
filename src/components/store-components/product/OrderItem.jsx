@@ -2,6 +2,7 @@ import React from "react";
 import CanvasRenderer from "./CanvasRenderer";
 import { Info, Edit, XCircle } from "lucide-react";
 import { AuthContext } from "../../../contexts/AuthContext";
+import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -25,7 +26,7 @@ const OrderItem = ({ order, onUpdate }) => {
         const orderResponse = await fetch(orderUrl, {
           // method: "GET",
           headers: {
-            Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+            Authorization: `Bearer ${Cookies.get("accessToken")}`,
             // "id": id,
           },
         });
@@ -65,7 +66,7 @@ const OrderItem = ({ order, onUpdate }) => {
   }, [order.orderItem.id]);
 
   const deleteOrder = async () => {
-    const token = sessionStorage.getItem("accessToken");
+    const token = Cookies.get("accessToken");
     try {
       const response = await fetch(
         `http://localhost:5000/orders/${order.id}`,

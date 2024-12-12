@@ -4,6 +4,7 @@ import no_product from "../../assets/logo192.png";
 import { AuthContext } from "../../contexts/AuthContext";
 import OrderItem from "./product/OrderItem";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const MyOrders = () => {
   const navigate = useNavigate();
@@ -14,7 +15,10 @@ const MyOrders = () => {
   const fetchOrders = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/orders/user/${userID}`
+        `http://localhost:5000/orders/me`, {
+          headers: {
+            Authorization: `Bearer ${Cookies.get("accessToken")}`,
+          }},
       );
       if (!response.ok) {
         throw new Error("Failed to fetch orders");

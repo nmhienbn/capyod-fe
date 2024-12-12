@@ -3,8 +3,10 @@ import CanvasRenderer from "./CanvasRenderer";
 import { Info, Edit, Copy, ShoppingBasket, XCircle } from "lucide-react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import LoginRequired from "../../LoginRequired";
 
-const ProductItem = ({ product, onUpdate, isSelected, onSelect }) => {
+const ProductItem = ({ product, onUpdate, isSelected, onSelect, canEdit }) => {
   const navigate = useNavigate();
   const { isLoggedIn } = React.useContext(AuthContext);
   let baseImageSrc = product.product.frontsideImageUrl;
@@ -27,7 +29,7 @@ const ProductItem = ({ product, onUpdate, isSelected, onSelect }) => {
       return;
     }
 
-    const token = sessionStorage.getItem("accessToken");
+    const token = Cookies.get("accessToken");
 
     try {
       console.log("Product ID:", product);
@@ -107,7 +109,7 @@ const ProductItem = ({ product, onUpdate, isSelected, onSelect }) => {
   };
 
   const deleteProduct = async () => {
-    const token = sessionStorage.getItem("accessToken");
+    const token = Cookies.get("accessToken");
     try {
       const response = await fetch(
         `http://localhost:5000/order-items/${product.id}`,
@@ -169,39 +171,41 @@ const ProductItem = ({ product, onUpdate, isSelected, onSelect }) => {
         <button
           className="p-2 hover:bg-gray-100 rounded"
           onClick={() => {
-            navigate(`/store/products/edit/${product.id}`);
+            navigate(`/store/products/preview/${product.id}`);
           }}
         >
           <Info size={16} />
         </button>
-        <button
+        {canEdit && <button
           className="p-2 hover:bg-gray-100 rounded"
           onClick={() => {
             navigate(`/store/products/edit/${product.id}`);
           }}
         >
           <Edit size={16} />
-        </button>
-        <button
+        </button>}
+        {canEdit && <button
           className="p-2 hover:bg-gray-100 rounded"
           onClick={duplicateDesign}
         >
           <Copy size={16} />
-        </button>
-        <button
-          className="p-2 hover:bg-gray-100 rounded"
-          onClick={() => {
-            navigate(`/store/products/buy/${product.id}`);
-          }}
-        >
-          <ShoppingBasket size={16} />
-        </button>
-        <button
+        </button>}
+        <LoginRequired
+            onSuccess={() => {
+              navigate(`/store/products/buy/${product.id}`);
+            }}>
+          <button
+            className="p-2 hover:bg-gray-100 rounded"
+          >
+            <ShoppingBasket size={16} />
+          </button>
+        </LoginRequired>
+        {canEdit && <button
           className="p-2 hover:bg-gray-100 rounded"
           onClick={deleteProduct}
         >
           <XCircle size={16} />
-        </button>
+        </button>}
       </div>
     </div>
   );
